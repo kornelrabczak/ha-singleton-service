@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.thecookiezen.</groupId>
+    <groupId>com.thecookiezen</groupId>
     <artifactId>ha-singleton-service</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -26,6 +26,21 @@
                     <target>${java.version}</target>
                     <debug>true</debug>
                     <optimize>true</optimize>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifestEntries>
+                            <Dependencies>org.jboss.msc,
+                                org.wildfly.clustering.singleton,
+                                org.jboss.as.server</Dependencies>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
