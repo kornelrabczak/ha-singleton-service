@@ -29,5 +29,4 @@ public class HealthCheckResource {
         final String masterNodeName = (String) service.getValue();
         return nodeName.equals(masterNodeName) ? Response.ok().build() : Response.status(Response.Status.GONE).build();
     }
-
 }
